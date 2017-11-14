@@ -1,0 +1,36 @@
+-Tempat penyimpanan
+	- Card -> 
+	- Server
+
+
+
+
+	1. Pola dasar dan pola turunan (detail persentase)
+	2. Cara kerja mesin ATM (termasuk magnetic strip kartu atm) 
+	3. Cara kerja masing2 fingerprint module (detect ridge apa aja)
+	4. Teknik image processing (software engineering)
+	5. Integrasi dengan mesin atm beneran
+	6. Metode Teknik enkripsi
+
+	1.	Pola dasar / Pattern : ARCH, WHORL, LOOP
+			- Algoritma pencocokan dengan pattern-based matching
+		Pola turunan / Minutiae : RIDGE ENDING, RIDGE BIFURCATION
+			- Algoritma pencocokan dengan feature/minutae-based matching
+			
+			Referensi
+			The American National Standards Institute (ANSI) proposes four classes of minutiae: ending,
+			bifurcation, trifurcation, and undetermined. The most discriminable categories are
+			ridge ending and bifurcation.
+			
+	2.	Mesin ATM jaman skrg menggunakan OS daripada mikrokontroler khusus
+		Magnetic strip menyimpan beberapa data tergantung sistemnya
+			- Bila PIN disimpan di dalam kartu, biasanya terenkripsi dengan baik
+			- Metode pencurian skimming dilakukan untuk mendapat kode kartu dan PIN biasanya diambil dari cara lain seperti visual (pencurian PIN melalui kamera atau pelaku yg melihat langsung) atau kotak PIN palsu untuk mendapat kode PIN langsung dari nasabah sasaran
+		
+		Referensi
+		https://en.wikipedia.org/wiki/Automated_teller_machine#Hardware
+		http://money.howstuffworks.com/atm-skimming.htm
+		https://security.stackexchange.com/questions/62185/why-do-atms-accept-any-pin
+		http://sidekick.windforwings.com/2008/02/how-are-atm-pins-validated.html
+		
+		
