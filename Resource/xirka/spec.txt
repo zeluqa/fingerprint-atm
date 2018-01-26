@@ -1,0 +1,11 @@
+MF : 3F 00
+DF : 10 00
+
+EF
+10 01: icao primer
+10 02: icao sekunder
+10 03: pin
+10 04: sidik jari
+10 05: sidik jari
+10 06: sidik jari
+10 07: sidik jari

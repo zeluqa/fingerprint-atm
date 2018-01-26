@@ -1,36 +1,37 @@
--Tempat penyimpanan
-	- Card -> 
-	- Server
+Kamis, 25 Januari 2018
+Kumpul untuk membahas progress masing-masing. Bayu sudah melakukan setting awal
+raspberry pi dan sudah dapat mengakses dan menjalankan kode di raspberry pi, juga
+memperlihatkan bahwa smart card reader yang kami beli sudah dapat terhubung
+dengan raspberry pi walaupun program belum dibuat. Saya memberikan kode-kode
+referensi kepada bayu untuk penggunaan smart card reader dan kepada wanwan untuk
+penggunaan module fingerprint.
+
+Pada malam hari saya mulai mengerjakan bagian saya untuk implementasi server function.
+Saya telah berhasil untuk mensetting MariaDB (MySQL) dengan membuat akun bernama pi
+untuk diakses raspberry pi dan database dan tabel awal berisi data nasabah dummy.
+
+Saya juga mulai membuat kode python untuk server function seperti yang telah dijelaskan
+pada B300 yaitu untuk melakukan fetch dan update. Saya mencoba menjalankannya pada
+laptop saya dan terbukti berhasil karena data dapat difetch dengan baik juga proses
+update yang dilakukan mengubah data pada database yang saya cek dengan MySQL clientnya.
+
+Kode ini tinggal saya uji dengan raspberry pi nya karena saya ragu mysql ini dapat
+terhubung dengan akun remote karena belum saya atur IP dari host untuk user pi
+yang telah saya buat karena sementara digunakan localhost untuk menguji kodenya.
 
 
+Jumat, 26 Januari 2018
+Saya mulai untuk membuat kode untuk program utama. Saya telah menyelesaikan 
+fungsi verifikasi PIN, namun tidak sempurna karena belum mempertimbangkan konversi
+tipe angka dari penenakan keypad menjadi tipe karakter karena belum diketahui
+pemetaannya, akan dilengkapi setelah input function dibuat. Namun sementara ini
+fungsi sudah berjalan dengan baik yaitu untuk menerima input angka dengan
+maksimal 6 angka dan penekanan tombol clear akan mengosongkan angka yang telah
+dimasukkan. Lalu penekanan tombol korfirmasi akan mengecek kebenaran PIN dengan
+yang telah tersimpan.
 
+Kemudian saya juga selesai membuat fungsi verifikasi sidik jari dan registrasi
+sidik jari. Namun fungsi tersebut kurang lebih kosong karena hanya berfungsi
+memanggil fungsi-fungsi yang diimplementasikan di module fingerprint yang akan
+dikerjakan wanwan
 
-	1. Pola dasar dan pola turunan (detail persentase)
-	2. Cara kerja mesin ATM (termasuk magnetic strip kartu atm) 
-	3. Cara kerja masing2 fingerprint module (detect ridge apa aja)
-	4. Teknik image processing (software engineering)
-	5. Integrasi dengan mesin atm beneran
-	6. Metode Teknik enkripsi
-
-	1.	Pola dasar / Pattern : ARCH, WHORL, LOOP
-			- Algoritma pencocokan dengan pattern-based matching
-		Pola turunan / Minutiae : RIDGE ENDING, RIDGE BIFURCATION
-			- Algoritma pencocokan dengan feature/minutae-based matching
-			
-			Referensi
-			The American National Standards Institute (ANSI) proposes four classes of minutiae: ending,
-			bifurcation, trifurcation, and undetermined. The most discriminable categories are
-			ridge ending and bifurcation.
-			
-	2.	Mesin ATM jaman skrg menggunakan OS daripada mikrokontroler khusus
-		Magnetic strip menyimpan beberapa data tergantung sistemnya
-			- Bila PIN disimpan di dalam kartu, biasanya terenkripsi dengan baik
-			- Metode pencurian skimming dilakukan untuk mendapat kode kartu dan PIN biasanya diambil dari cara lain seperti visual (pencurian PIN melalui kamera atau pelaku yg melihat langsung) atau kotak PIN palsu untuk mendapat kode PIN langsung dari nasabah sasaran
-		
-		Referensi
-		https://en.wikipedia.org/wiki/Automated_teller_machine#Hardware
-		http://money.howstuffworks.com/atm-skimming.htm
-		https://security.stackexchange.com/questions/62185/why-do-atms-accept-any-pin
-		http://sidekick.windforwings.com/2008/02/how-are-atm-pins-validated.html
-		
-		
